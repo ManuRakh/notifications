@@ -30,10 +30,12 @@ const calculateDatesDiffFromToday = (appointedDate) => {
   const today = new Date(); // Текущая дата и время
   const appointmentTime = new Date(appointedDate); // Дата назначения приема в формате Date
   const timeDiff = appointmentTime - today; // Разница между текущим временем и временем назначения
+
+  return timeDiff
 };
 
 const notify = (timeDiff, appointment) => {
-  if (timeDiff <= threshold48Hours && timeDiff > threshold2Hours) {
+  if (timeDiff <= threshold48Hours+10 && timeDiff > threshold2Hours) {
     logMessage(
       `${new Date()} | Привет ${
         appointment.user.name
@@ -41,7 +43,7 @@ const notify = (timeDiff, appointment) => {
         appointment.slot
       }!`,
     );
-  } else if (timeDiff <= threshold2Hours && timeDiff > 0) {
+  } else if (timeDiff <= threshold2Hours+10 && timeDiff > 0) {
     logMessage(
       `${new Date()} | Привет ${
         appointment.user.name
