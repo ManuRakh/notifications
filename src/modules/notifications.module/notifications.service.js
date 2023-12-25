@@ -16,10 +16,10 @@ const checkAppointments = async () => {
     },
     include: [
       {
-        model: userModel, // замените userModel на фактическую модель пользователей
+        model: userModel,
       },
       {
-        model: doctorModel, // замените userModel на фактическую модель пользователей
+        model: doctorModel,
       },
     ],
   });
@@ -27,9 +27,9 @@ const checkAppointments = async () => {
 };
 
 const calculateDatesDiffFromToday = (appointedDate) => {
-  const today = new Date(); // Текущая дата и время
-  const appointmentTime = new Date(appointedDate); // Дата назначения приема в формате Date
-  const timeDiff = appointmentTime - today; // Разница между текущим временем и временем назначения
+  const today = new Date(); 
+  const appointmentTime = new Date(appointedDate);
+  const timeDiff = appointmentTime - today;
 
   return timeDiff
 };
